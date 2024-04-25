@@ -1,0 +1,36 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "home" : {
+
+    },
+    "Home" : {
+
+    },
+    "library" : {
+
+    },
+    "Library" : {
+
+    },
+    "live" : {
+
+    },
+    "Live" : {
+
+    },
+    "NOW PLAYING VIEW" : {
+
+    },
+    "search" : {
+
+    },
+    "Search" : {
+
+    },
+    "Settings" : {
+
+    }
+  },
+  "version" : "1.0"
+}

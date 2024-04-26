@@ -16,17 +16,8 @@ struct LibraryPresenter: View {
         
         NavigationStack(path: $state.path) {
             LibraryView()
-                .navigationDestination(for: LibraryState.Path.self) {
-                    switch $0 {
-                    case .playlists:
-                        Text("PLAYLISTS")
-                    case .artists:
-                        Text("ARTISTS")
-                    case .albums:
-                        Text("ALBUMS")
-                    case .songs:
-                        Text("SONGS")
-                    }
+                .navigationDestination(for: LibraryCategory.self) {
+                    LibraryCategoryView(type: $0)
                 }
         }
     }
@@ -62,7 +53,7 @@ fileprivate struct LibraryView: View {
 @MainActor
 fileprivate struct LibraryPathCell: View {
     @Environment(LibraryState.self) private var state
-    var path: LibraryState.Path
+    var path: LibraryCategory
     
     var body: some View {
         NavigationLink(value: path) {

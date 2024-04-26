@@ -4,13 +4,10 @@
     "Albums" : {
 
     },
-    "ALBUMS" : {
-
-    },
     "Artists" : {
 
     },
-    "ARTISTS" : {
+    "common view" : {
 
     },
     "home" : {
@@ -37,9 +34,6 @@
     "Playlists" : {
 
     },
-    "PLAYLISTS" : {
-
-    },
     "Recently Played" : {
 
     },
@@ -53,9 +47,6 @@
 
     },
     "Songs" : {
-
-    },
-    "SONGS" : {
 
     }
   },

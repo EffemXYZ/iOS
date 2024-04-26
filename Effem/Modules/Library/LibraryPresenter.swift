@@ -41,12 +41,12 @@ fileprivate struct LibraryView: View {
                 
             }
         }
-        .listStyle(.grouped)
+        .listStyle(.plain)
+        .background(Color.clear)
         .scrollIndicators(.hidden)
         .scrollableToTop(scrollToTop: $state.scrollToTop, topID: topID)
         .navigationTitle("Library")
-//        .commonView()
-//        .navBar(title: "Library")
+        .commonView()
     }
 }
 
@@ -68,6 +68,7 @@ fileprivate struct LibraryPathCell: View {
                 .font(.system(size: 20))
             }
         }
+        .listRowBackground(Color.primaryBackground)
     }
 }
 

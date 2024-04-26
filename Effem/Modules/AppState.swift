@@ -29,7 +29,10 @@ public class AppState {
     }
 
     var route: Route = .main
-    var tab: Tab = .library
+    var tab: Tab = .library {
+        didSet { tabChanged(oldValue: oldValue, newValue: tab) }
+    }
+    
     var sheet: Sheet? = nil
     
     
@@ -52,5 +55,20 @@ public class AppState {
     
     func openNowPlaying() {
         sheet = .nowPlaying
+    }
+    
+    private func tabChanged(oldValue: Tab, newValue: Tab) {
+        guard newValue == oldValue else { return }
+        
+        switch newValue {
+        case .home:
+            break
+        case .live:
+            break
+        case .library:
+            libraryState.tabReSelected()
+        case .search:
+            break
+        }
     }
 }

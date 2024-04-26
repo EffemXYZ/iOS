@@ -1,7 +1,19 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "Album" : {
+
+    },
     "Albums" : {
+
+    },
+    "Artist" : {
 
     },
     "Artists" : {
@@ -31,6 +43,9 @@
     "NOW PLAYING VIEW" : {
 
     },
+    "Playlist" : {
+
+    },
     "Playlists" : {
 
     },
@@ -43,7 +58,22 @@
     "Search" : {
 
     },
+    "Search Albums" : {
+
+    },
+    "Search Artists" : {
+
+    },
+    "Search Playlists" : {
+
+    },
+    "Search Songs" : {
+
+    },
     "Settings" : {
+
+    },
+    "Song" : {
 
     },
     "Songs" : {

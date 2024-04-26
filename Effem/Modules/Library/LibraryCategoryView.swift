@@ -56,7 +56,7 @@ struct LibraryCategoryView: View {
         }
         .listStyle(.plain)
         .background(Color.clear)
-        .searchable(text: $searchText, prompt: Text(type.searchPrompt))
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Text(type.searchPrompt))
         .navigationTitle("\(type.title)")
         .commonView()
         .toolbar {

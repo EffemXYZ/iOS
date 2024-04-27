@@ -46,6 +46,7 @@ fileprivate struct LibraryView: View {
         .scrollIndicators(.hidden)
         .scrollableToTop(scrollToTop: $state.scrollToTop, topID: topID)
         .navigationTitle("Library")
+        .settingsInNavBar()
         .commonView()
     }
 }
@@ -74,5 +75,6 @@ fileprivate struct LibraryPathCell: View {
 
 #Preview {
     LibraryPresenter()
+        .environment(AppState())
         .environment(LibraryState(parentState: .init()))
 }

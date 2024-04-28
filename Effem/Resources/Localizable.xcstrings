@@ -7,6 +7,9 @@
     "%@" : {
 
     },
+    "12/31/87" : {
+
+    },
     "Album" : {
 
     },
@@ -43,12 +46,6 @@
     "my view" : {
 
     },
-    "NOW PLAYING" : {
-
-    },
-    "NOW PLAYING VIEW" : {
-
-    },
     "Playlist" : {
 
     },
@@ -79,10 +76,19 @@
     "Settings" : {
 
     },
+    "something" : {
+
+    },
     "Song" : {
 
     },
     "Songs" : {
+
+    },
+    "test" : {
+
+    },
+    "title" : {
 
     }
   },

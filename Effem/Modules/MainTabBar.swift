@@ -47,7 +47,7 @@ struct MainTabBar: View {
         .sheet(item: $state.sheet) {
             switch $0 {
             case .nowPlaying:
-                Text("NOW PLAYING VIEW")
+                NowPlayingView()
             case .settings:
                 SettingsPresenter()
                     .environment(state.settingsState)

@@ -10,6 +10,8 @@
 		6C0ADFFE2BDC3E1500F5F3A5 /* LibraryCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0ADFFD2BDC3E1500F5F3A5 /* LibraryCategoryView.swift */; };
 		6C0AE0002BDC40C200F5F3A5 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0ADFFF2BDC40C200F5F3A5 /* CommonView.swift */; };
 		6C0AE0022BDDA44E00F5F3A5 /* SettingsInNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AE0012BDDA44E00F5F3A5 /* SettingsInNavBar.swift */; };
+		6C0AE0042BDDA97E00F5F3A5 /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AE0032BDDA97E00F5F3A5 /* NowPlayingView.swift */; };
+		6C0AE0062BDDAA3B00F5F3A5 /* PlaybackSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AE0052BDDAA3B00F5F3A5 /* PlaybackSlider.swift */; };
 		6C155B422BDBF0650043EFBA /* ScrollableToTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C155B412BDBF0650043EFBA /* ScrollableToTop.swift */; };
 		6C3FFDA72BDA67E800136F24 /* EffemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFDA62BDA67E800136F24 /* EffemApp.swift */; };
 		6C3FFDAB2BDA67E900136F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3FFDAA2BDA67E900136F24 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		6C0ADFFD2BDC3E1500F5F3A5 /* LibraryCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCategoryView.swift; sourceTree = "<group>"; };
 		6C0ADFFF2BDC40C200F5F3A5 /* CommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
 		6C0AE0012BDDA44E00F5F3A5 /* SettingsInNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInNavBar.swift; sourceTree = "<group>"; };
+		6C0AE0032BDDA97E00F5F3A5 /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
+		6C0AE0052BDDAA3B00F5F3A5 /* PlaybackSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSlider.swift; sourceTree = "<group>"; };
 		6C155B412BDBF0650043EFBA /* ScrollableToTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableToTop.swift; sourceTree = "<group>"; };
 		6C3FFDA32BDA67E800136F24 /* Effem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Effem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3FFDA62BDA67E800136F24 /* EffemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffemApp.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				6CEEF1662BDA6E5900B10EB8 /* AppState.swift */,
 				6CEEF1782BDA71CD00B10EB8 /* AppPresenter.swift */,
 				6CEEF17A2BDA725A00B10EB8 /* MainTabBar.swift */,
+				6C0AE0032BDDA97E00F5F3A5 /* NowPlayingView.swift */,
 				6CEEF16D2BDA713600B10EB8 /* Common */,
 				6CEEF16C2BDA713000B10EB8 /* Home */,
 				6CEEF16B2BDA712A00B10EB8 /* Library */,
@@ -229,6 +234,7 @@
 				6C155B412BDBF0650043EFBA /* ScrollableToTop.swift */,
 				6C0ADFFF2BDC40C200F5F3A5 /* CommonView.swift */,
 				6C0AE0012BDDA44E00F5F3A5 /* SettingsInNavBar.swift */,
+				6C0AE0052BDDAA3B00F5F3A5 /* PlaybackSlider.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 				6C0ADFFE2BDC3E1500F5F3A5 /* LibraryCategoryView.swift in Sources */,
 				6CEEF1712BDA718200B10EB8 /* SettingsState.swift in Sources */,
 				6CEEF1672BDA6E5900B10EB8 /* AppState.swift in Sources */,
+				6C0AE0062BDDAA3B00F5F3A5 /* PlaybackSlider.swift in Sources */,
 				6C0AE0022BDDA44E00F5F3A5 /* SettingsInNavBar.swift in Sources */,
 				6C3FFDA72BDA67E800136F24 /* EffemApp.swift in Sources */,
 				6CEEF17D2BDA729100B10EB8 /* HomePresenter.swift in Sources */,
@@ -317,6 +324,7 @@
 				6CEEF1812BDA72DF00B10EB8 /* LibraryPresenter.swift in Sources */,
 				6CEEF1772BDA71B600B10EB8 /* HomeState.swift in Sources */,
 				6C155B422BDBF0650043EFBA /* ScrollableToTop.swift in Sources */,
+				6C0AE0042BDDA97E00F5F3A5 /* NowPlayingView.swift in Sources */,
 				6CEEF16F2BDA715900B10EB8 /* SearchState.swift in Sources */,
 				6CEEF1792BDA71CD00B10EB8 /* AppPresenter.swift in Sources */,
 				6CEEF17F2BDA72BC00B10EB8 /* LivePresenter.swift in Sources */,

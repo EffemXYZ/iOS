@@ -68,6 +68,7 @@ fileprivate struct LibraryPathCell: View {
                 }
                 .font(.system(size: 20))
             }
+            .frame(height: 44)
         }
         .listRowBackground(Color.primaryBackground)
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 enum LibraryCategory: Hashable {
     case playlists
@@ -117,20 +118,25 @@ fileprivate struct AlbumCell: View {
 }
 
 fileprivate struct SongsListView: View {
+    @Query private var tracks: [Track]
+    
     var body: some View {
         List {
-            SongCell()
+            ForEach(tracks) {
+                SongCell(track: $0)
+            }
         }
     }
 }
 
 fileprivate struct SongCell: View {
+    var track: Track
+    
     var body: some View {
-        Text("Song")
+        Text(track.name)
             .listRowBackground(Color.primaryBackground)
     }
 }
-
 
 #Preview {
     NavigationStack {

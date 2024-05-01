@@ -18,7 +18,7 @@ struct EffemApp: App {
             AppPresenter()
                 .environment(state)
                 .environment(mediaPlaybackManager)
-//                .setupModel()
+                .setupModel()
                 .setTheme()
         }
     }

@@ -13,7 +13,7 @@ struct EffemDataContainerViewModifier: ViewModifier {
     
     init(inMemory: Bool) {
         do {
-            container = try ModelContainer(for: Track.self, configurations: ModelConfiguration(isStoredInMemoryOnly: inMemory))
+            container = try ModelContainer(for: Track.self, Artist.self, Album.self, configurations: ModelConfiguration(isStoredInMemoryOnly: inMemory))
         } catch {
             fatalError("Failed to create ModelContainer")
         }

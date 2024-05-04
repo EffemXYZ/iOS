@@ -12,13 +12,11 @@ import SwiftData
 class Artist {
     let name: String
     let image: String
-    let albums: [Album]
-    let tracks: [Track]
+    let albums: [Album]?
+    let tracks: [Track]?
     
-    init(name: String, image: String, albums: [Album], tracks: [Track]) {
+    init(name: String, image: String) {
         self.name = name
         self.image = image
-        self.albums = albums
-        self.tracks = tracks
     }
 }

@@ -133,13 +133,40 @@ fileprivate struct SongCell: View {
     var track: Track
     
     var body: some View {
-        Text(track.name)
-            .listRowBackground(Color.primaryBackground)
+        Button(action: playTrack) {
+            HStack {
+                AsyncImage(url: URL(string: track.album.image), content: {
+                    $0
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                }, placeholder: {
+                    Image(systemName: "person.2.crop.square.stack")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                })
+                
+                VStack(alignment: .leading) {
+                    Text(track.name)
+                        .font(.title3)
+                    Text(track.artist.name)
+                        .font(.subheadline)
+                }
+                // TODO: set text color with foregroundStyle
+            }
+        }
+        .listRowBackground(Color.primaryBackground)
+    }
+    
+    private func playTrack() {
+        print("play")
     }
 }
 
 #Preview {
     NavigationStack {
         LibraryCategoryView(type: .songs)
+            .modelContainer(previewContainer)
     }
 }

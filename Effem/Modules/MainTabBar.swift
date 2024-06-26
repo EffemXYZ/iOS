@@ -17,30 +17,33 @@ struct MainTabBar: View {
         @Bindable var state = state
         
         TabView(selection: $state.tab) {
-            Group {
+            Tab(value: .home, content: {
                 HomePresenter()
                     .environment(state.homeState)
-                    .tag(AppState.Tab.home)
-                    .tabItem { Label("home", systemImage: "music.note.house") }
-                
+            }, label: {
+                Label("home", systemImage: "music.note.house")
+            })
+            
+            Tab(value: .live, content: {
                 LivePresenter()
                     .environment(state.liveState)
-                    .tag(AppState.Tab.live)
-                    .tabItem { Label("live", systemImage: "antenna.radiowaves.left.and.right") }
-                
+            }, label: {
+                Label("live", systemImage: "antenna.radiowaves.left.and.right")
+            })
+            
+            Tab(value: .library, content: {
                 LibraryPresenter()
                     .environment(state.libraryState)
-                    .tag(AppState.Tab.library)
-                    .tabItem { Label("library", systemImage: "music.quarternote.3")}
-                
+            }, label: {
+                Label("library", systemImage: "music.quarternote.3")
+            })
+            
+            Tab(value: .search, content: {
                 SearchPresenter()
                     .environment(state.searchState)
-                    .tag(AppState.Tab.search)
-                    .tabItem { Label("search", systemImage: "magnifyingglass")}
-            }
-//            .playbackBar()
-//            .toolbarBackground(.visible, for: .tabBar)
-//            .toolbarBackground(Color.primaryWhite, for: .tabBar)
+            }, label: {
+                Label("search", systemImage: "magnifyingglass")
+            })
         }
         .onChange(of: state.tab) { triggerSensoryFeedback.toggle() }
         .sensoryFeedback(.selection, trigger: triggerSensoryFeedback)
@@ -62,4 +65,5 @@ struct MainTabBar: View {
     MainTabBar()
         .environment(AppState())
         .environment(MediaPlaybackManager())
+        .modelContainer(previewContainer)
 }

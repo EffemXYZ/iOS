@@ -121,9 +121,13 @@ fileprivate struct SongsListView: View {
     @Query private var tracks: [Track]
     
     var body: some View {
-        List {
-            ForEach(tracks) {
-                SongCell(track: $0)
+        if tracks.isEmpty {
+            ContentUnavailableView("no songs in library", systemImage: "waveform.slash")
+        } else {
+            List {
+                ForEach(tracks) {
+                    SongCell(track: $0)
+                }
             }
         }
     }

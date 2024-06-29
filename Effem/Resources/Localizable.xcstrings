@@ -13,13 +13,13 @@
     "about" : {
 
     },
-    "Album" : {
+    "album" : {
 
     },
-    "Albums" : {
+    "albums" : {
 
     },
-    "Artist" : {
+    "artist" : {
 
     },
     "Artist Info" : {
@@ -28,7 +28,7 @@
     "ARTIST INFO" : {
 
     },
-    "Artists" : {
+    "artists" : {
 
     },
     "cancel" : {
@@ -76,10 +76,10 @@
     "no songs in library" : {
 
     },
-    "Playlist" : {
+    "playlist" : {
 
     },
-    "Playlists" : {
+    "playlists" : {
 
     },
     "privacy" : {
@@ -91,16 +91,16 @@
     "Search" : {
 
     },
-    "Search Albums" : {
+    "search albums" : {
 
     },
-    "Search Artists" : {
+    "search artists" : {
 
     },
-    "Search Playlists" : {
+    "search playlists" : {
 
     },
-    "Search Songs" : {
+    "search songs" : {
 
     },
     "selected color scheme" : {
@@ -112,7 +112,7 @@
     "something" : {
 
     },
-    "Songs" : {
+    "songs" : {
 
     },
     "system" : {

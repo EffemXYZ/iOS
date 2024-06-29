@@ -24,8 +24,15 @@ public class AppState {
     enum Sheet: Int, Identifiable {
         case nowPlaying
         case settings
+        case search
         
-        var id: Int { self.rawValue }
+        var id: Int { rawValue }
+    }
+    
+    enum FullScreenCover: Int, Identifiable {
+        case live
+        
+        var id: Int { rawValue }
     }
 
     var route: Route = .main
@@ -33,7 +40,8 @@ public class AppState {
         didSet { tabChanged(oldValue: oldValue, newValue: tab) }
     }
     
-    var sheet: Sheet? = nil
+    var sheet: Sheet?
+    var fullScreenCover: FullScreenCover?
     var path: [LibraryCategory] = []
     
     public init() {}

@@ -16,19 +16,19 @@ enum LibraryCategory: Hashable {
     
     var title: LocalizedStringResource {
         switch self {
-        case .playlists: "Playlists"
-        case .artists: "Artists"
-        case .albums: "Albums"
-        case .songs: "Songs"
+        case .playlists: "playlists"
+        case .artists: "artists"
+        case .albums: "albums"
+        case .songs: "songs"
         }
     }
     
     var searchPrompt: LocalizedStringResource {
         switch self {
-        case .playlists: "Search Playlists"
-        case .artists: "Search Artists"
-        case .albums: "Search Albums"
-        case .songs: "Search Songs"
+        case .playlists: "search playlists"
+        case .artists: "search artists"
+        case .albums: "search albums"
+        case .songs: "search songs"
         }
     }
     
@@ -82,7 +82,7 @@ fileprivate struct PlaylistsListView: View {
 
 fileprivate struct PlaylistCell: View {
     var body: some View {
-        Text("Playlist")
+        Text("playlist")
             .listRowBackground(Color.primaryBackground)
     }
 }
@@ -103,7 +103,7 @@ fileprivate struct ArtistsListView: View {
 
 fileprivate struct ArtistCell: View {
     var body: some View {
-        Text("Artist")
+        Text("artist")
             .listRowBackground(Color.primaryBackground)
     }
 }
@@ -124,7 +124,7 @@ fileprivate struct AlbumsListView: View {
 
 fileprivate struct AlbumCell: View {
     var body: some View {
-        Text("Album")
+        Text("album")
             .listRowBackground(Color.primaryBackground)
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LivePresenter: View {
+    
     var body: some View {
         NavigationStack {
             LiveView()
@@ -16,8 +17,19 @@ struct LivePresenter: View {
 }
 
 fileprivate struct LiveView: View {
+    @Environment(LiveState.self) private var state
+    
     var body: some View {
         Text("Live")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("", systemImage: "xmark", action: dismiss)
+                }
+            }
+    }
+    
+    private func dismiss() {
+        state.dismiss()
     }
 }
 

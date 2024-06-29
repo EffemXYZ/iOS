@@ -14,4 +14,8 @@ class LiveState {
     init(parentState: AppState) {
         self.parentState = parentState
     }
+    
+    func dismiss() {
+        parentState.fullScreenCover = nil
+    }
 }

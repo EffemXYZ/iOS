@@ -23,6 +23,8 @@ struct LibraryPresenter: View {
 }
 
 fileprivate struct LibraryView: View {
+    @Environment(AppState.self) private var appState
+    // TODO: with UI change, does LibraryState need to exist?
     @Environment(LibraryState.self) private var state
     @Namespace private var topID
     
@@ -30,11 +32,13 @@ fileprivate struct LibraryView: View {
         @Bindable var state = state
         List {
             LibraryPathCell(path: .songs)
+                .listRowSeparator(.hidden, edges: .top)
                 .id(topID)
             LibraryPathCell(path: .albums)
             LibraryPathCell(path: .playlists)
             LibraryPathCell(path: .artists)
             
+            // TODO: This is actually going to become discoverable content
             Section("Recently Played") {
                 
             }
@@ -43,9 +47,24 @@ fileprivate struct LibraryView: View {
         .background(Color.clear)
         .scrollIndicators(.hidden)
         .scrollableToTop(scrollToTop: $state.scrollToTop, topID: topID)
-        .navigationTitle("Library")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("EFFEM")
+                    .font(.title2)
+                    .bold()
+            }
+            
+            ToolbarItem(placement: .topBarLeading) {
+                Button("", systemImage: "slider.horizontal.3", action: openSettings)
+            }
+        }
         .settingsInNavBar()
         .commonView()
+    }
+    
+    private func openSettings() {
+        appState.openSettings()
     }
 }
 

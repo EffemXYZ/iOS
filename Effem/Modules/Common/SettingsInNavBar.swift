@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#warning("This modifier is not being used")
 fileprivate struct SettingsInNavBar: ViewModifier {
     @Environment(AppState.self) private var state
     

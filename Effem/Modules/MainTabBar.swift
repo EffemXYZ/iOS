@@ -15,6 +15,7 @@ struct MainTabBar: View {
     var body: some View {
         @Bindable var state = state
         
+        /*
         TabView(selection: $state.tab) {
             Tab(value: .home, content: {
                 HomePresenter()
@@ -46,6 +47,14 @@ struct MainTabBar: View {
         }
         .onChange(of: state.tab) { triggerSensoryFeedback.toggle() }
         .sensoryFeedback(.selection, trigger: triggerSensoryFeedback)
+         */
+        
+        ZStack {
+            LibraryPresenter()
+                .environment(state.libraryState)
+            
+            // TODO: throw the music bar here
+        }
         .sheet(item: $state.sheet) {
             switch $0 {
             case .nowPlaying:
@@ -53,7 +62,7 @@ struct MainTabBar: View {
             case .settings:
                 SettingsPresenter()
                     .environment(state.settingsState)
-//                    .presentationDragIndicator(.visible)
+                //                    .presentationDragIndicator(.visible)
             }
         }
         

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 struct NowPlayingView: View {
     var body: some View {
         VStack {
@@ -20,7 +19,6 @@ struct NowPlayingView: View {
     }
 }
 
-@MainActor
 fileprivate struct PlaybackControlsView: View {
     @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
     @State private var goBackTrigger = PlainTaskTrigger()
@@ -79,7 +77,6 @@ fileprivate struct PlaybackControlsView: View {
     }
 }
 
-@MainActor
 fileprivate struct EpisodeDetailsView: View {
     @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
     
@@ -101,7 +98,6 @@ fileprivate struct EpisodeDetailsView: View {
     }
 }
 
-@MainActor
 fileprivate struct EpisodeArtworkView: View {
     @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
     @State private var height: CGFloat?
@@ -129,7 +125,6 @@ fileprivate struct EpisodeArtworkView: View {
     }
 }
 
-@MainActor
 fileprivate struct AudioProgressView: View {
     @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
     

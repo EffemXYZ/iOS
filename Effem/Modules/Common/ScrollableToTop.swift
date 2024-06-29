@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 fileprivate struct ScrollToTopView: ViewModifier {
     @Binding var shouldScrollToTop: Bool
     var topID: Namespace.ID

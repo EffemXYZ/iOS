@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 struct MainTabBar: View {
     @Environment(AppState.self) private var state
     @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager

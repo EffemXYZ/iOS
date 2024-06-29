@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 struct LibraryPresenter: View {
     @Environment(LibraryState.self) private var state
     
@@ -23,7 +22,6 @@ struct LibraryPresenter: View {
     }
 }
 
-@MainActor
 fileprivate struct LibraryView: View {
     @Environment(LibraryState.self) private var state
     @Namespace private var topID
@@ -51,7 +49,6 @@ fileprivate struct LibraryView: View {
     }
 }
 
-@MainActor
 fileprivate struct LibraryPathCell: View {
     @Environment(LibraryState.self) private var state
     var path: LibraryCategory

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 fileprivate struct SettingsInNavBar: ViewModifier {
     @Environment(AppState.self) private var state
     
@@ -26,7 +25,6 @@ fileprivate struct SettingsInNavBar: ViewModifier {
 }
 
 extension View {
-    @MainActor
     func settingsInNavBar() -> some View {
         modifier(SettingsInNavBar())
     }

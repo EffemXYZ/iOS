@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 struct SearchPresenter: View {
     var body: some View {
         NavigationStack {
@@ -16,7 +15,6 @@ struct SearchPresenter: View {
     }
 }
 
-@MainActor
 fileprivate struct SearchView: View {
     var body: some View {
         Text("Search")

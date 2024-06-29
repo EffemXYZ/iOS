@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 struct LivePresenter: View {
     var body: some View {
         NavigationStack {
@@ -16,7 +15,6 @@ struct LivePresenter: View {
     }
 }
 
-@MainActor
 fileprivate struct LiveView: View {
     var body: some View {
         Text("Live")

@@ -8,7 +8,6 @@
 import SwiftUI
 
 @main
-@MainActor
 struct EffemApp: App {
     @State private var state = AppState()
     @State private var mediaPlaybackManager = MediaPlaybackManager()

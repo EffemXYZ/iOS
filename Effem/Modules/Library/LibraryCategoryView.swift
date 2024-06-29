@@ -88,9 +88,15 @@ fileprivate struct PlaylistCell: View {
 }
 
 fileprivate struct ArtistsListView: View {
+    @Query private var artists: [Artist]
+    
     var body: some View {
-        List {
-            ArtistCell()
+        if artists.isEmpty {
+            ContentUnavailableView("no artists in library", systemImage: "waveform.slash")
+        } else {
+            List {
+                ArtistCell()
+            }
         }
     }
 }
@@ -103,9 +109,15 @@ fileprivate struct ArtistCell: View {
 }
 
 fileprivate struct AlbumsListView: View {
+    @Query private var albums: [Album]
+    
     var body: some View {
-        List {
-            AlbumCell()
+        if albums.isEmpty {
+            ContentUnavailableView("no albums in library", systemImage: "square.stack.3d.up.slash")
+        } else {
+            List {
+                AlbumCell()
+            }
         }
     }
 }

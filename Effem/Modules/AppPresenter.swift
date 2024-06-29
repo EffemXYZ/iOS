@@ -13,7 +13,7 @@ struct AppPresenter: View {
     var body: some View {
         switch state.route {
         case .main:
-            MainTabBar()
+            MainPresenter()
         }
     }
 }

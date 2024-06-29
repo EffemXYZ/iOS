@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#warning("This is deprecated")
+/*
 struct MainTabBar: View {
     @Environment(AppState.self) private var state
     @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
@@ -15,7 +17,6 @@ struct MainTabBar: View {
     var body: some View {
         @Bindable var state = state
         
-        /*
         TabView(selection: $state.tab) {
             Tab(value: .home, content: {
                 HomePresenter()
@@ -31,12 +32,12 @@ struct MainTabBar: View {
                 Label("live", systemImage: "antenna.radiowaves.left.and.right")
             })
             
-            Tab(value: .library, content: {
-                LibraryPresenter()
-                    .environment(state.libraryState)
-            }, label: {
-                Label("library", systemImage: "music.quarternote.3")
-            })
+//            Tab(value: .library, content: {
+//                LibraryPresenter()
+//                    .environment(state.libraryState)
+//            }, label: {
+//                Label("library", systemImage: "music.quarternote.3")
+//            })
             
             Tab(value: .search, content: {
                 SearchPresenter()
@@ -47,25 +48,6 @@ struct MainTabBar: View {
         }
         .onChange(of: state.tab) { triggerSensoryFeedback.toggle() }
         .sensoryFeedback(.selection, trigger: triggerSensoryFeedback)
-         */
-        
-        ZStack {
-            LibraryPresenter()
-                .environment(state.libraryState)
-            
-            // TODO: throw the music bar here
-        }
-        .sheet(item: $state.sheet) {
-            switch $0 {
-            case .nowPlaying:
-                NowPlayingView()
-            case .settings:
-                SettingsPresenter()
-                    .environment(state.settingsState)
-                //                    .presentationDragIndicator(.visible)
-            }
-        }
-        
     }
 }
 
@@ -75,3 +57,4 @@ struct MainTabBar: View {
         .environment(MediaPlaybackManager())
         .modelContainer(previewContainer)
 }
+*/

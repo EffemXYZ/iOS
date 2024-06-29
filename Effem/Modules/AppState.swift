@@ -34,18 +34,14 @@ public class AppState {
     }
     
     var sheet: Sheet? = nil
-    
+    var path: [LibraryCategory] = []
     
     public init() {}
     
     @ObservationIgnored
-    lazy var homeState = HomeState(parentState: self)
-    @ObservationIgnored
     lazy var liveState = LiveState(parentState: self)
     @ObservationIgnored
     lazy var searchState = SearchState(parentState: self)
-    @ObservationIgnored
-    lazy var libraryState = LibraryState(parentState: self)
     @ObservationIgnored
     lazy var settingsState = SettingsState(parentState: self)
     
@@ -66,7 +62,8 @@ public class AppState {
         case .live:
             break
         case .library:
-            libraryState.tabReSelected()
+//            libraryState.tabReSelected()
+            break
         case .search:
             break
         }

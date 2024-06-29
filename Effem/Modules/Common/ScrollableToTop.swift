@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#warning("this is deprecated")
 fileprivate struct ScrollToTopView: ViewModifier {
     @Binding var shouldScrollToTop: Bool
     var topID: Namespace.ID

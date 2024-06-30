@@ -35,6 +35,9 @@ class MediaPlaybackManager {
     var currentTime: String = "00:00"
     var timeRemaining: String = "00:00"
     
+    // TODO: we should use the current track
+    var currentTrack: Track?
+    
     init() {
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .duckOthers, .allowAirPlay, .allowBluetooth, .allowBluetoothA2DP])
         setupRemoteControlHandlers()

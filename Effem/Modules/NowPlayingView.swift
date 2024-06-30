@@ -21,58 +21,40 @@ struct NowPlayingView: View {
 
 fileprivate struct PlaybackControlsView: View {
     @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
-    @State private var goBackTrigger = PlainTaskTrigger()
-    @State private var playPauseTrigger = PlainTaskTrigger()
-    @State private var skipAheadTrigger = PlainTaskTrigger()
     
     var body: some View {
         VStack {
             AudioProgressView()
             
             HStack {
-                Button(action: triggerGoBack) {
+                Button(action: goBack) {
                     Image(systemName: "gobackward.15")
                 }
                 .padding(.trailing)
                 
-                Button(action: triggerPlayPause) {
+                Button(action: playPause) {
                     Image(systemName: mediaPlaybackManager.isPlaying ? "pause.fill" : "play.fill")
                 }
                 .padding(.horizontal)
                 
-                Button(action: triggerSkipAhead) {
+                Button(action: skipAhead) {
                     Image(systemName: "goforward.30")
                 }
                 .padding(.leading)
             }
             .font(.title)
-            .task($goBackTrigger) { await goBack() }
-            .task($playPauseTrigger) { await playPause() }
-            .task($skipAheadTrigger) { await skipAhead() }
         }
     }
     
-    private func triggerPlayPause() {
-        playPauseTrigger.trigger()
-    }
-    
-    private func playPause() async {
+    private func playPause() {
         mediaPlaybackManager.playPause()
     }
     
-    private func triggerSkipAhead() {
-        skipAheadTrigger.trigger()
-    }
-    
-    private func skipAhead() async {
+    private func skipAhead() {
         mediaPlaybackManager.skipAhead30()
     }
     
-    private func triggerGoBack() {
-        goBackTrigger.trigger()
-    }
-    
-    private func goBack() async {
+    private func goBack() {
         mediaPlaybackManager.goBack15()
     }
 }
@@ -85,9 +67,9 @@ fileprivate struct EpisodeDetailsView: View {
             VStack(alignment: .leading) {
                 Text("12/31/87")
                     .font(.subheadline)
-                Text("title")
+                Text(mediaPlaybackManager.currentTrack?.name ?? "")
                     .font(.headline)
-                Text("something")
+                Text(mediaPlaybackManager.currentTrack?.artist.name ?? "")
 //                    .setForegroundStyle()
             }
             
@@ -103,25 +85,14 @@ fileprivate struct EpisodeArtworkView: View {
     @State private var height: CGFloat?
     
     var body: some View {
-        AsyncImage(url: URL(string: ""), content: {
-            $0
-                .resizable()
-                .scaledToFill()
-        }, placeholder: {
-            ZStack {
-                Rectangle()
-                    .fill(.gray)
-                    .overlay(Material.ultraThin)
-                ProgressView()
-            }
-        })
-        .cornerRadius(20)
-        .frame(maxWidth: .infinity)
-        .background(GeometryReader { Color.clear.preference(key: WidthKey.self, value: $0.size.width) })
-        .padding(.horizontal, 40)
-        .onPreferenceChange(WidthKey.self) { height = $0 }
-        .frame(height: height)
-        .shadow(radius: 20)
+        CommonImage(image: .url(url: mediaPlaybackManager.currentTrack?.album.image ?? "", sfSymbol: nil))
+            .cornerRadius(20)
+            .frame(maxWidth: .infinity)
+            .background(GeometryReader { Color.clear.preference(key: WidthKey.self, value: $0.size.width) })
+            .padding(.horizontal, 40)
+            .onPreferenceChange(WidthKey.self) { height = $0 }
+            .frame(height: height)
+            .shadow(radius: 20)
     }
 }
 

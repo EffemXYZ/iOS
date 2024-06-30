@@ -146,22 +146,14 @@ fileprivate struct SongsListView: View {
 }
 
 fileprivate struct SongCell: View {
+    @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
     var track: Track
     
     var body: some View {
         Button(action: playTrack) {
             HStack {
-                AsyncImage(url: URL(string: track.album.image), content: {
-                    $0
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50, height: 50)
-                }, placeholder: {
-                    Image(systemName: "person.2.crop.square.stack")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50, height: 50)
-                })
+                CommonImage(image: .url(url: track.album.image, sfSymbol: "person.2.crop.square.stack"))
+                    .frame(width: 50, height: 50)
                 
                 VStack(alignment: .leading) {
                     Text(track.name)
@@ -176,7 +168,7 @@ fileprivate struct SongCell: View {
     }
     
     private func playTrack() {
-        print("play")
+        mediaPlaybackManager.currentTrack = track
     }
 }
 
@@ -184,5 +176,6 @@ fileprivate struct SongCell: View {
     NavigationStack {
         LibraryCategoryView(type: .songs)
             .modelContainer(previewContainer)
+            .environment(MediaPlaybackManager())
     }
 }

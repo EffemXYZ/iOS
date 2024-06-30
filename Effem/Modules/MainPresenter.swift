@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainPresenter: View {
     @Environment(AppState.self) private var state
+    @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
     
     var body: some View {
         @Bindable var state = state
@@ -20,8 +21,13 @@ struct MainPresenter: View {
                         LibraryCategoryView(type: $0)
                     }
                 
+                if let _ = mediaPlaybackManager.currentTrack {
+                    NowPlayingBar()
+                }
+                
                 // TODO: throw the music bar here
             }
+            .commonView()
             .sheet(item: $state.sheet) {
                 switch $0 {
                 case .nowPlaying:
@@ -86,7 +92,6 @@ fileprivate struct MainView: View {
                 Button("", systemImage: "magnifyingglass", action: openSearch)
             }
         }
-        .commonView()
     }
     
     private func openSettings() {
@@ -99,6 +104,59 @@ fileprivate struct MainView: View {
     
     private func openLive() {
         state.fullScreenCover = .live
+    }
+}
+
+fileprivate struct NowPlayingBar: View {
+    @Environment(AppState.self) private var state
+    @Environment(MediaPlaybackManager.self) private var mediaPlaybackManager
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            HStack {
+                CommonImage(image: .url(url: mediaPlaybackManager.currentTrack?.album.image ?? "", sfSymbol: "music.quarternote.3"))
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .frame(width: 40, height: 40)
+                
+                Text(mediaPlaybackManager.currentTrack?.name ?? "")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundStyle(.black)
+                
+                Spacer()
+                
+                Button(action: playPause) {
+                    Image(systemName: mediaPlaybackManager.isPlaying ? "pause.rectangle.fill" : "play.fill")
+                        .font(.title2)
+                        .foregroundStyle(.black)
+                        .frame(width: 20)
+                        .padding(.horizontal)
+                }
+                
+                Image(systemName: "forward.end.fill")
+                    .font(.title2)
+                    .foregroundStyle(.black)
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 8.0)
+                    .fill(.white)
+            )
+            .padding(.horizontal)
+            .contentShape(Rectangle())
+            .onTapGesture(perform: openNowPlayingView)
+        }
+    }
+    
+    private func openNowPlayingView() {
+        state.sheet = .nowPlaying
+    }
+    
+    private func playPause() {
+        
     }
 }
 

@@ -16,11 +16,24 @@ struct SearchPresenter: View {
 }
 
 fileprivate struct SearchView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         Text("Search")
+            .commonView()
+            .navigationTitle("search")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Done", action: { dismiss() })
+                }
+            }
     }
 }
 
 #Preview {
-    SearchPresenter()
+    Text("EFFEM")
+        .sheet(isPresented: .constant(true)) {
+            SearchPresenter()
+                .environment(SearchState(parentState: .init()))
+        }
 }
